@@ -1,0 +1,83 @@
+<template name="header">
+	<div class="mask">
+		<div id="intro-loader"></div>
+	</div>
+
+	<!-- Home Section -->
+	<section id="home" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+		<div class="intro-video">
+			<a id="video-volume" onclick="$('#bgndVideo').toggleVolume()"><i class="fa fa-volume-down"></i></a>
+			<!-- Video Background - Here you need to replace the videoURL with your youtube video URL -->
+			<a id="bgndVideo" class="player" data-property="{videoURL:'http://www.youtube.com/watch?v=AyUkw0LnHbc',containment:'body',autoPlay:true, mute:true, startAt:115, opacity:1}">youtube</a>
+			<!--/Video Background -->
+
+			<div class="text-slider">
+				<div class="intro-item">
+					<div class="intro-flexslider">
+						<ul class="slides">
+
+							<!-- Slide Item -->
+							<li>
+								<div class="section-title text-center">
+									<div class="hidden-xs">
+										<span class="line big"></span>
+										<span>any.TV</span>
+										<span class="line big"></span>
+									</div>
+									<h1>Be <i>yourself.</i></h1>
+									<div class="hidden-xs">
+										<span class="line"></span>
+										<span>music</span>
+										<span class="line"></span>
+									</div>
+									<p class="lead">
+										Providing the necessary tools and expertise to increase YouTube revenue for all of our partners
+									</p>
+								</div>
+							</li>
+							<!-- Slide Item -->
+
+							<!-- Slide Item -->
+							<li>
+								<div class="section-title text-center">
+									<div class="hidden-xs">
+										<span class="line big"></span>
+										<span>any.TV</span>
+										<span class="line big"></span>
+									</div>
+									<h1>be<i>FREE</i></h1>
+									<div class="hidden-xs">
+										<span class="line"></span>
+										<span>music</span>
+										<span class="line"></span>
+									</div>
+									<p class="lead">
+										The leader of rights management for music content creators on YouTube.
+									</p>
+								</div>
+							</li>
+							<!-- Slide Item -->
+							
+						</ul>
+					</div>
+					
+					<div class="mybutton2 small">
+						<a class="start-button" href="#about" data-hover="More info"> <span>Discover How</span> </a>
+					</div>
+
+					<div class="mybutton2 small">
+						<a class="start-button" href="#about" data-hover="Register"> <span>I want to be a partner</span> </a>
+					</div>
+
+					<div class="mybutton2 small">
+						<a class="start-button" id="loginButton" href="#login" data-hover="Login"> <span>Already a Partner?</span> </a>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Home Section -->
+
+</template>
