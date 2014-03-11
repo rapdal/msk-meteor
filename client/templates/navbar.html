@@ -8,7 +8,16 @@
 					<i class="fa fa-bars fa-2x"></i>
 				</button>
 				<a id="brand" class="navbar-brand myBrand" href="#home"> 
-					<h4>anyTV music</h4>
+					<h4>
+						anyTV
+						{{#if currentUser}}/
+						<span class="username">
+							{{currentUser.profile.name}}
+						</span>	
+						<img src="{{currentUser.services.google.picture}}" style="width:30px"/>
+						{{/if}}
+
+					</h4> 
 				</a>
 			</div>
 			<div class="navbar-collapse collapse">
@@ -50,7 +59,9 @@
 						<a href="#blog" class="int-collapse-menu">Blog</a>
 					</li> -->
 					<li>
-						<a href="#login" class="int-collapse-menu">Login</a>
+						{{#unless currentUser}}
+							<a href="#login" id="login" class="int-collapse-menu">Login</a>
+						{{/unless}}
 					</li>
 				</ul>
 			</div>

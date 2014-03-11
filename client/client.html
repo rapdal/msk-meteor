@@ -4,6 +4,8 @@
 </head>
 <body>
 	{{>navbar}} 
-	{{>header}}
+	{{#unless currentUser}}
+		{{>header}}
+	{{/unless}}
 
 </body>
