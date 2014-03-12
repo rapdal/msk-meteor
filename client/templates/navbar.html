@@ -7,14 +7,14 @@
 					<span class="sr-only">Toggle navigation</span>
 					<i class="fa fa-bars fa-2x"></i>
 				</button>
-				<a id="brand" class="navbar-brand myBrand" href="#home"> 
+				<a id="brand" class="navbar-brand myBrand" href="{{pathFor 'index'}}"> 
 					<h4>
-						anyTV
+						anyTV music
 						{{#if currentUser}}/
 						<span class="username">
 							{{currentUser.profile.name}}
 						</span>	
-						<img src="{{currentUser.services.google.picture}}" style="width:30px"/>
+						<img src="{{currentUser.services.google.picture}}" style="width:30px;border-radius: 13px;"/>
 						{{/if}}
 
 					</h4> 
@@ -37,10 +37,10 @@
 						</ul>
 					</li> -->
 
-				<!-- 	<li>
+					<li>
 						<a href="#about" class="int-collapse-menu">About</a>
 					</li>
-					<li>
+					<!-- <li>
 						<a href="#service" class="int-collapse-menu">Service</a>
 					</li>
 					<li>
@@ -59,9 +59,11 @@
 						<a href="#blog" class="int-collapse-menu">Blog</a>
 					</li> -->
 					<li>
-						{{#unless currentUser}}
-							<a href="#login" id="login" class="int-collapse-menu">Login</a>
-						{{/unless}}
+						{{#if currentUser}}
+							<a href="" id="logout" class="int-collapse-menu">Logout</a>
+						{{else}}
+							<a href="" id="" class="int-collapse-menu login">Login with google</a>
+						{{/if}}
 					</li>
 				</ul>
 			</div>
