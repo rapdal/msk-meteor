@@ -1,73 +1,36 @@
 <template name="navbar">
-	<!-- Navbar -->
-	<div id="navigation" class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="navbar-inner">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<i class="fa fa-bars fa-2x"></i>
-				</button>
-				<a id="brand" class="navbar-brand myBrand" href="{{pathFor 'index'}}"> 
-					<h4>
-						anyTV music
-						{{#if currentUser}}/
-						<span class="username">
-							{{currentUser.profile.name}}
-						</span>	
-						<img src="{{currentUser.services.google.picture}}" style="width:30px;border-radius: 13px;"/>
-						{{/if}}
+	<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{{pathFor 'index'}}">
+    	anyTV music
+    </a>
+  </div>
 
-					</h4> 
-				</a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-				<!-- 	<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
-						<ul class="dropdown-menu">
-							<li>
-								<a href="#home">Home video background</a>
-							</li>
-							<li>
-								<a href="index2.html">Home Fullscreen Slider</a>
-							</li>
-							<li>
-								<a href="index3.html">Home Pattern Slider</a>
-							</li>
-						</ul>
-					</li> -->
-
-					<li>
-						<a href="#about" class="int-collapse-menu">About</a>
-					</li>
-					<!-- <li>
-						<a href="#service" class="int-collapse-menu">Service</a>
-					</li>
-					<li>
-						<a href="#portfolio" class="int-collapse-menu">Portfolio</a>
-					</li>
-					<li>
-						<a href="#team" class="int-collapse-menu">Team</a>
-					</li>
-					<li>
-						<a href="#client" class="int-collapse-menu">Client</a>
-					</li>
-					<li>
-						<a href="#pricing" class="int-collapse-menu">Pricing</a>
-					</li>
-					<li>
-						<a href="#blog" class="int-collapse-menu">Blog</a>
-					</li> -->
-					<li>
-						{{#if currentUser}}
-							<a href="" id="logout" class="int-collapse-menu">Logout</a>
-						{{else}}
-							<a href="" id="" class="int-collapse-menu login">Login with google</a>
-						{{/if}}
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+ {{#if currentUser}}
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+    <ul class="nav navbar-nav navbar-right">  
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.username}}<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <!-- <li><a href="#">Action</a></li> -->
+          <!-- <li><a href="#">Another action</a></li> -->
+          <!-- <li><a href="#">Something else here</a></li> -->
+          <!-- <li class="divider"></li> -->
+          <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+  {{/if}}
+	</nav>
 	<!-- Navbar -->
 </template>
