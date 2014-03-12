@@ -1,6 +1,7 @@
 Router.map(function(){
 	this.route('index',{path: '/'});
 	this.route('dashboard',{path: '/home'});
+	this.route('register',{path: '/register'});
 	// this.route('programs',{path: '/programs'});
 	// this.route('faqs',{path: '/faqs'});
 	// this.route('contact',{path: '/contact'});
