@@ -1,85 +1,55 @@
 <template name="index">
-	<!-- About Section -->
-		<section id="about" class="section-content">
-			<div class="container">
+	<div class="container">
+		<div class="row">
+				<div class="col-md-12 col-sm-12 col-md-12 col-xs-12 text-center">
+					<p class="lead">Welcome to any.TV music</p>
+					<p> The leader of rights management for music content creators on YouTube.</p>
+					 
+					
+						<div class="main">
 
-				<!-- Section title -->
-				<div class="section-title text-center">
-					<div>
-						<span class="line big"></span>
-						<span>Pure creativity</span>
-						<span class="line big"></span>
-					</div>
-					<h1 class="item_right">About Us</h1>
-					<div>
-						<span class="line"></span>
-						<span>We create new ground</span>
-						<span class="line"></span>
-					</div>
-					<p class="lead">
-						Alpine is an advertising, media, and creative content agency that helps the new brands explore new and innovative marketing approaches.
-					</p>
-				</div>
-				<!-- Section title -->
+				      <h3>Please Log In, or <a href="{{pathFor 'register'}}">Sign Up</a></h3>
+				      <div class="row">
+				        <div class="col-xs-6 col-sm-6 col-md-6">
+				          <a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>
+				        </div>
+				        <div class="col-xs-6 col-sm-6 col-md-6">
+				          <a href="#" class="btn btn-lg btn-info btn-block">Google</a>
+				        </div>
+				      </div>
+				      <div class="login-or">
+				        <hr class="hr-or">
+				        <span class="span-or">or</span>
+				      </div>
 
-				<div class="row">
-					<div class="col-md-12">
-						<div class="element-line">
-							<div class="item_left">
-								<img src="images/devices.jpg" class="img-responsive img-center" alt="">
-							</div>
-						</div>
-					</div>
-
-					<!-- item media -->
-					<div class="col-md-6">
-						<div class="element-line">
-							<div class="item_left">
-								<div class="media">
-									<a class="pull-left rotate" href="#"> <img class="media-object img-circle" src="/images/about1.jpg" alt=""> </a>
-									<div class="media-body">
-										<h3 class="media-heading">Planning</h3>
-										<p>
-											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- item media -->
-					<!-- item media -->
-					<div class="col-md-6">
-						<div class="element-line">
-							<div class="item_right">
-								<div class="media">
-									<a class="pull-left rotate" href="#"> <img class="media-object img-circle" src="/images/about2.jpg" alt=""> </a>
-									<div class="media-body">
-										<h3 class="media-heading">Consultancy</h3>
-										<p>
-											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- item media -->
-				</div>
-			</div>
-		</section>
-
-		<!-- About Section -->
-
-		<a href="#" id="back-top"><i class="fa fa-angle-up fa-2x"></i></a>
-
-		<footer class="text-center">
-			<div class="social-icon">
-				<a href="#"> <i class="fa fa-facebook fa-3x"></i> </a>
-				<a href="#"> <i class="fa fa-twitter fa-3x"></i> </a>
-				<a href="#"> <i class="fa fa-google-plus fa-3x"></i> </a>
-				<a href="#"> <i class="fa fa-youtube fa-3x"></i> </a>
-			</div>
-			© Copyright 2013 by Alpine Studios. All Rights Reserved. Powered by <a href="http://www.creative-ispiration.com"> <strong>creative-ispiration.com</strong> </a>
-		</footer>
+				      <form role="form" id="login_form">
+				      	{{#if login_errors}}
+				      	<p class="alert alert-warning">
+				      		{{login_errors}}
+				      	</p>
+				      	{{/if}}
+				        <div class="form-group">
+				          <label for="inputUsernameEmail">Username or email</label>
+				          <input type="text" class="form-control" id="inputUsernameEmail" name="username">
+				        </div>
+				        <div class="form-group">
+				          <a class="pull-right" href="#">Forgot password?</a>
+				          <label for="inputPassword">Password</label>
+				          <input type="password" class="form-control" id="inputPassword" name="password">
+				        </div>
+				        <div class="checkbox pull-right">
+				          <label>
+				            <input type="checkbox">
+				            Remember me </label>
+				        </div>
+				        <button type="submit" class="btn btn btn-primary">
+				          Log In
+				        </button>
+				      </form>
+    
+   					 </div>
+					
+				</div> 
+		</div>
+	</div>
 </template>
