@@ -1,24 +1,12 @@
-<template name="sidebar">
-	
-		<div class="col-md-2 col-sm-2 col-md-2 col-xs-12">
-			<div class=" ">
-
-				<!-- Form group -->
-				<div class="form-group">
-						<h2> Menu </h2>
-					<div class="mybutton medium">
-						<a href="#"><span data-hover="Small">Small button</span></a>
-					</div>
-					<div class="mybutton medium">
-						<a href="#"><span data-hover="Small">Small button</span></a>
-					</div>
-					<div class="mybutton medium">
-						<a href="#"><span data-hover="Small">Small button</span></a>
-					</div>
-				</div>
-				<!-- Form group -->									
-
-			</div>
-		</div>
+<template name="sidebar">	
+	<div class="col-md-2 col-sm-2 col-md-2 col-xs-12">
+		<nav class="nav-sidebar">
+			<ul class="nav">
+				<li class="active"><a href="{{pathFor 'index'}}" id="home">Home</a></li>
+				<li><a href="{{pathFor 'addmusic'}}" id="music_release">Music Release</a></li>
+				<li><a href=" ">Permissions</a></li>
+				<li><a href=" ">FAQ</a></li> 
+			</ul>
+		</nav>
 	</div>
 </template>

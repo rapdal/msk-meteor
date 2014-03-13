@@ -1,0 +1,26 @@
+<template name="addmusic">
+	<!-- datatable css -->
+  <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css"/>
+  
+  <!-- datatable js -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+
+	<div class="container">
+		
+	
+		<div class="row">
+			{{>sidebar}}
+			
+			<div class="col-md-10 col-sm-10 col-md-10 col-xs-12">
+				<div class="well">					
+					<a href="{{pathFor 'addmusic'}}">Music Release</a> 
+				</div>
+				<a href="{{pathFor 'addtrack'}}" class="btn btn-primary">
+					<span class="glyphicon glyphicon-music"></span> Add Track
+				</a>
+				</a>				
+			</div>
+		
+		</div> 
+	</div>
+</template>
