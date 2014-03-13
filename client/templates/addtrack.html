@@ -1,0 +1,404 @@
+<template name="addtrack">
+	<div class="container">	
+
+		<div class="row">
+			{{>sidebar}}
+			
+			<div class="col-md-10 col-sm-10 col-md-10 col-xs-12"> 
+				<div class="well">					
+					<a href="{{pathFor 'addmusic'}}">Music Release</a> / 
+					<a href="#">Add Track</a>
+				</div>
+
+				<div class="text-center">
+					{{#if tracks_err}}
+					<p class="alert alert-success">
+						{{tracks_err}}
+					</p>
+					{{/if}}
+				</div>	
+
+			<form method="POST" action="" id="track_form">
+	
+				<table class=" ">
+					<tr>
+						<td>
+							<a href="" id="uploadbutt" class="btn btn-success btn-lg btn-block">Upload</a><br/>
+						</td>
+					 	<td class="required">
+	            <label for="track_url"> File URL* </label>
+	            <input
+	            type="text"
+	            name="track_url"
+	            id="track_url"
+	            title="Put the music file URL here or use the upload button to upload new one" 
+	            value=""
+	            required>
+	            
+	            </input>
+          	</td>
+          	<td class="required">
+	            <label for="release_name"> Release Name / Album Name* </label>
+	            <input 
+	            type="text" 
+	            name="release_name" 
+	            id="release_name" 
+	            title="The release name of your album/work." 
+	            value=""
+	            required>
+	            </input>
+         	 	</td>
+         	 	<td>
+              <label for="volume_no"> Volume / Disc No. </label>
+	            <input type="text" name="volume_no" id="volume_no" title="Volume No. / Disc No." 
+	            value="">
+          	</td>
+					</tr>
+					<tr>
+          <td class="required">
+            <label for="track_format"> Format </label>
+            <input class="typeahead" id="track_format" type="text" name="track_format" id="track_format" title="Format of this release eg: Single, EP, Full-length and etc." required autocomplete="off"
+            value=""
+            ></input>
+          </td>
+          <td>
+            <label for="release_artist_ensemble"> Release Ensemble </label>
+            <input 
+              type="text" name="release_artist_ensemble" id="release_artist_ensemble" 
+              title="This field is intended  for classical works only. Any artist or artists listed in the artist name field classified as an ensemble should be listed in this field." 
+              value=""
+              >
+            </input>
+          </td>
+          <td class="required">
+            <!--input type="text" name="release_artist" id="release_artist"></input-->
+            <label for="track_no" style="margin-top:0px;"> Track No.* </label>
+            
+            <p style="">
+            <input type="text" name="track_no" id="track_no" title="" required="" 
+            pattern="\d*" 
+            data-original-title="The number of each track from a given release. Track numbers must start at 1" 
+            style="width: 59px;margin-top: 0px;"
+            value=""
+            >
+            <span style="
+                font-size: x-small;
+                margin-left: 25px;
+                color: black;
+            ">  
+            <input type="checkbox" name="allow_stream" id="allow_stream" value="1" > allow streaming  </span>
+            </p>
+          </td>
+          <td>
+            <!--input type="text" name="release_artist" id="release_artist"></input-->
+            <label for="explicit" style="margin: 0px 137px 7px 0px !important;"> Explicit </label>
+            <select name="explicit" id="explicit" 
+              title="Select YES for a track that contains explicit lyrics within the content of the song. 
+              Select Clean only when there is a corresponding version of the track that is explicit.
+              Select No when there is no explicit content and when there is no need to tag a track as clean" style="margin-top: 0px;">
+              <option value="yes" >Yes</option>
+              <option value="no" > No</option>
+              <option value="clean"> Clean</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="required">
+            <label for="file_artist_name"> File Under Artist Name* </label>
+            <input 
+              type="text" 
+              name="file_artist_name" 
+              id="file_artist_name"
+              title="Select which artist you would like to file this release / album under."
+              class="typeahead"
+              required
+              autocomplete="off"
+              value="">
+            </input>
+          </td>
+          <td>
+            <label for="release_artist_conductor"> Release Conductor </label>
+            <input 
+              type="text" 
+              name="release_artist_conductor" 
+              id="release_artist_conductor"
+              title="Any artist or artists listed in the artist name field classified as a conductor should be listed in this field."
+              value=""
+              >
+            </input>
+          </td>
+          <td class="required">
+            <label for="track_name"> Track Name* </label>
+            <input 
+              type="text" 
+              name="track_name" 
+              id="track_name" 
+              title="The name or title of each track."
+              value=""
+              required></input>
+          </td>
+          <td class="required">
+            <label for="isrc"> ISRC* </label><br/>
+            <input type="text" name="isrc" id="isrc" required
+              title="International Standard Recording Code or ISRC is a 12 character alpha-numeric that identifies a unique recording. If you have already assigned an ISRC to a given track, enter it in this field. If you leave this field blank any.TV will assign an ISRC for you."
+              value=""
+            >
+            </input>
+          </td>
+        </tr>
+       	<tr>
+          <td class="required">
+            <label for="artist_country"> Artist Country* </label>
+          	 <select type="text" name="artist_country" id="artist_country" 
+              title="Country of origin. Only one value may be selected for each artist or group of artists." required>
+              <option value="">Select Country</option> 
+              {{#each countries_list}}
+              	<option value="{{country}}"> {{country}} </option>
+              {{/each}}
+             </select>
+          </td>
+          <td>
+            <label for="release_date"> Release Date </label>
+            <input type="text" name="release_date" id="release_date" class="datepicker"
+            title="The orignal date on which this release was issued."
+            value=""
+            >
+            </input>
+          </td>
+          <td class="required">
+            <label for="track_artist"> Track Artist* </label>
+            <input type="text" name="track_artist" id="track_artist" 
+            title="List all artists featured on a particular track."
+            required
+            class="typeahead"
+            autocomplete="off"
+            value=""
+            ></input>
+          </td>
+          <td>
+            <label for="third_party_publisher" style="margin-top: 0px"> Third Party Publisher? </label>
+            <select name="third_party_publisher" id="third_party_publisher"
+            title="Does a 3rd party publisher own any publishing rights for this track" style="margin: 0px 0 0 66px;">
+              <option value="yes" >YES</option>
+              <option value="no" >NO</option>
+            </select>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <label for="artist_url"> Artist URL </label>
+            <input type="text" name="artist_url" id="artist_url"
+            title="Website of the artist. Enter only one value for each artist or group of artists. Please include the http:// designation."
+            value=""
+            >
+            </input>
+          </td>
+          <td>
+            <label for="sale_start_date"> Sale Start Date </label>
+            <input type="text" name="sale_start_date" id="sale_start_date" class="datepicker"
+            title="The future date a release will be issued."
+            value=""
+            >
+            </input>
+          </td>
+          <td>
+            <label for="track_artist_featuring"> Track Artist Featuring </label>
+            <input 
+              type="text" 
+              name="track_artist_featuring" 
+              id="track_artist_featuring"
+              value=""
+            ></input>
+          </td>
+          <td>
+            <label for="phonographic_rights"> Phonographic Rights Info</label>
+            <input type="text" name="phonographic_rights" id="phonographic_rights" 
+            title="The phonographic rights line or (P) Line refers to the entity that owns or has licensed the master recording to a particular track. Enter an appropriate value for each track. Format should be as follows: YYYY Company. For example, 2007 Company Records"
+            value="">
+            </input>
+          </td>
+
+        </tr>
+        <tr>
+          <td class="required">
+            <label for="release_artist_primary"> Release Artist(s)* </label>
+            <input type="text" name="release_artist_primary" id="release_artist_primary" 
+            title="This is the name of the artist(s) performing on the release, as you want it to appear in stores. Solo artists performing together must be separated by a pipe symbol | Ex: Primary Artist 1|Primary Artist 2"
+            value=""
+            required></input>
+          </td>
+          <td>
+            <label for="imprint"> Imprint </label><br/>
+            <input type="text" name="imprint" id="imprint" title="Name of the imprint credited to the release."
+            value=""
+            ></input>
+          </td>
+          <td>
+            <label for="track_artist_remixer"> Track Artist Remixers </label>
+            <input type="text" 
+            name="track_artist_remixer" 
+            id="track_artist_remixer"
+            title="Remixer(s) featured on this particular track. List multiple featured remixers in this field separated by the pipe symbol | Ex: Artist 1|Artist 2 "
+            value=""
+            ></input>
+          </td>
+          <td>
+            <label for="writers"> Writers </label><br/>
+            <input type="text" name="writers" id="writers" title="Please list each track's songwriters in this column."
+            value=""
+            ></input>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="release_artist_featuring"> Release Featured Artist</label>
+            <input type="text" 
+            name="release_artist_featuring" 
+            id="release_artist_featuring" 
+            title="Any artist or artists listed in the artist name field classified as a featuring should be listed in this field."
+            value=""
+            ></input>
+          </td>
+          <td>
+            <!--input type="text" name="release_artist" id="release_artist"></input-->
+            <label for="genre"> Genre </label><br/>
+            <input type="text" name="genre" id="genre"
+            title="Only one genre may be selected per release. In other words, you cannot select a different genre for different tracks from the same release."
+            class="typeahead"
+            value=""
+            ></input>
+          </td>
+          <td>
+            
+            <label for="track_artist_composers"> Track Artist Composers </label>
+            <input type="text" name="track_artist_composers" id="track_artist_composers" 
+              title="This is the name of the composer(s) who composed the material on this particular track."
+              value="">
+            </input>  
+          </td>
+          <td>
+            <label for="publishers"> Publishers </label>
+            <input type="text" name="publishers" id="publishers" 
+            title="If the song in-question has only one publisher, enter the publisher’s name / entity name in this field."
+            value="">
+            </input>
+          </td>
+        </tr>
+
+       	<tr>
+          <td>
+            <label for="release_artist_remixers"> Release Remixers </label>
+            <input type="text" name="release_artist_remixers" id="release_artist_remixers" 
+            title="Any artist or artists listed in the artist name field classified as a remixer should be listed in this field."
+            value="">
+            </input>
+          </td>
+          <td>
+            <!--input type="text" name="release_artist" id="release_artist"></input-->
+            <label for="subgenre"> Sub-genre </label>
+            <input type="text" name="subgenre" id="subgenre" 
+            title="Only one sub-genre may be selected per release. In other words, you cannot select a different sub-genre for different tracks from the same release."
+            class="typeahead"
+            value=""
+            >
+            </input>
+          </td>
+          <td>
+          
+            <label for="track_artist_orchestra"> Track Artist Orchestra </label>
+            <input type="text" name="track_artist_orchestra" id="track_artist_orchestra"
+              title="This is the name of the orchestra(s) performing the material on this particular track."
+              value=""
+            ></input>
+          </td>
+          
+          <td>            
+            <input type="submit" name="add_track" value="Save" class="button button-primary" style="margin-top: 20px;"/>
+	        </td>
+        </tr>
+         <tr>
+          <td>
+            <label for="release_artist_performers"> Release Performers </label>
+            <input type="text" name="release_artist_performers" id="release_artist_performers"
+            title="Any artist or artists listed in the Artist Name field should be listed in this column. If only one performer is listed please put name of performer."
+            value="">
+            </input>
+          </td>
+          <td>
+            <!--input type="text" name="release_artist" id="release_artist"></input-->
+            <label for="copyright"> Copyright or Publication Year </label>
+            <input type="text" name="copyright" id="copyright" 
+            title="Copyright Information. Format should be as follows: YYYY Company. For example, 2007 Company Records"
+            value="">
+            </input>
+          </td>
+          <td>
+         
+            <label for="track_artist_ensemble"> Track Artist Ensemble </label>
+            <input type="text" name="track_artist_ensemble" id="track_artist_ensemble"
+            title="This is the name of the ensemble(s) performing the material on this particular track."
+            value="">
+            </input>
+          </td>
+          
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <!--input type="text" name="release_artist" id="release_artist"></input-->
+            <label for="release_artist_composers"> Release Composers </label>
+            <input type="text" name="release_artist_composers" id="release_artist_composers" 
+            title="If there is no particular composer emphasized or branded at the release level, leave this field blank."
+            value="">
+            </input>
+          </td>
+          <td>
+            <!--input type="text" name="release_artist" id="release_artist"></input-->
+            <label for="catalogno"> Catalog No. </label>
+            <input type="text" name="catalogno" id="catalogno" 
+            title="A label-assigned code used to identify a given release."
+            value=""
+            ></input>
+          </td>
+          <td>
+            <label for="track_artist_conductors"> Track Artist Conductors </label>
+            <input type="text" name="track_artist_conductors" id="track_artist_conductors"
+            title="This is the name of the ensemble(s) performing the material on this particular track."
+            value=""
+            ></input>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+            <!--input type="text" name="release_artist" id="release_artist"></input-->
+            <label for="release_artist_orchestra"> Release Orchestra </label>
+            <input type="text" name="release_artist_orchestra" id="release_artist_orchestra"
+            title="Any artist or artists listed in the artist name field classified as an orchestra should be listed in this field."
+            value=""
+            ></input>
+          </td>
+          <td>
+            <!--input type="text" name="release_artist" id="release_artist"></input-->
+            <label for="release_version"> Release Version </label>
+            <input type="text" name="release_version" id="release_version"
+            title="If this is an alternate version please describe its particularity here."
+            value=""
+            ></input>
+          </td>
+          <td>
+          </td>
+        </tr>
+
+
+				</table>
+			</form>
+			</div>
+		
+		</div> 
+		{{>uploadmodal}}
+	</div>
+</template>

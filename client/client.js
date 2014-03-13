@@ -2,6 +2,8 @@ Router.map(function(){
 	this.route('index',{path: '/'});
 	this.route('dashboard',{path: '/home'});
 	this.route('register',{path: '/register'});
+	this.route('addmusic',{path: '/musicrelease'});
+	this.route('addtrack',{path: '/musicrelease/add_track'});
 	// this.route('programs',{path: '/programs'});
 	// this.route('faqs',{path: '/faqs'});
 	// this.route('contact',{path: '/contact'});
@@ -25,3 +27,7 @@ Router.map(function(){
 	// // this.route('dashboard', {path: '/dashboard'});
 	// this.route('application_process',{path: '/application_process'});
 }); 
+
+Router.configure({ 
+  notFoundTemplate: 'notFound' 
+});

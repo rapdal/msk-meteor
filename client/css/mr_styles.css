@@ -1,0 +1,105 @@
+    table tr td {
+      width: 260px;
+      padding: 2px !important;
+      vertical-align: middle !important;;
+    }
+    
+    table tr td input{
+      width: 250px;
+      padding: none !important;
+    } 
+    .required {
+      color: red;
+    } 
+    .required input{
+      color: initial;
+    }
+    #uploadIframe {
+      min-height: 300px;
+      border: none;
+    }
+    .wp-admin {
+      background-color: inherit !important;
+    }
+    .modal-header {
+      border-bottom: none !important;
+    }
+
+    @media screen and (min-width: 768px) {
+      .modal-dialog {
+        width: 70% !important;
+      }
+      .modal-dialog.modal-dialog-album {
+        width: 800px !important;
+      }
+    }
+
+    .modal {
+      position: fixed !important;
+      margin: 0 !important;
+      top: 0 !important;
+      overflow: auto !important;
+      left: 0 !important;
+      z-index: 1050 !important;
+      width: auto !important;
+      margin-left: 0 !important;
+      background-color: rgba(75, 130, 130, 0.10) !important;
+      border: none !important;
+    }
+
+    .modal-body {
+      padding-top: 0px !important;
+    }
+    
+    label {
+      font-size: smaller;
+      margin: 0 !important;
+      font-weight: normal !important;
+    }
+    
+    a.upbutt {
+      width: 250px !important;
+      height: 100% !important;
+      font-size: x-large !important;
+      text-align: center;
+      padding-top: 5px !important;
+    }
+
+    #artist_country{
+      color:initial;
+    }
+
+    /* ----------------------------- Edited by Afro -------------------------- */
+
+    .modal-body {
+    max-height: none;
+    overflow-y: visible;
+    }
+
+    .music-modal {
+    padding: 15px !important;
+    margin-bottom: 0 !important;
+    }
+
+   @media screen and (min-width: 768px){
+    .modal-dialog {
+       width: 37% !important;
+       margin: 55px auto;
+      }
+    }
+
+   /* ----------------------------- Reflowable audio box -------------------------- */    
+
+    @media (max-width: 767px){
+    .files audio {
+    max-width: 300px !important;
+    margin-bottom: 15px;
+      }
+    }
+
+    @media (max-width: 395px){
+    .files audio {
+    max-width: 211px !important;
+    margin-bottom: 15px;
+      }
+    }
